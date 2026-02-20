@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="jp">
+
+<head>
+  <mata charaset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}" type="text/css">
+    <title>売買利益計算ツール</title>
+</head>
+
+<body>
+  <div class="container">
+    <h1>売買利益計算ツール</h1>
+
+    <form method="post" class="form-box">
+      <div class="field">
+        <label>商品名</label>
+        <input type="text" name="name" class="single" placeholder="必須項目">
+      </div>
+      <div class="field">
+        <label>売値</label>
+        <input type="text" name="price" class="single" placeholder="売値が空の場合、(原価+送料)*1.2に自動計算されます">
+      </div>
+      <div class="field">
+        <label>原価</label>
+        <input type="text" name="cost_price" class="single" placeholder="必須項目">
+      </div>
+      <div class="field">
+        <label>送料</label>
+        <input type="text" name="shipping" class="single" placeholder="必須項目">
+      </div>
+      <button type="submit">計算する</button>
+    </form>
+    <form action="/import" method="post" enctype="multipart/form-data" class="import-form">
+      <div>
+        <input type="file" name="file" accept=".csv">
+        <button type="submit">CSVインポート</button>
+      </div>
+    </form>
+    <p>
+      <a href="/history" class="btn-history">履歴一覧を表示</a>
+    </p>
+
+    {% if error %}
+    <p class="error_message">{{ error }}</p>
+    {% endif %}
+    {% if result %}
+    <div class="result-box">
+      <h2>計算結果</h2>
+      {% for r in result %}
+      <p>商品名:{{ r['name'] }}</p>
+      <p>価格:{{ r['price'] }} 円</p>
+      <p>原価:{{ r["cost_price"] }} 円</p>
+      <p>送料:{{ r["shipping"] }} 円</p>
+      <p>利益:{{ r["profit"] }} 円</p>
+      <p>利益率:{{ r["profit_rate"] }} %</p>
+      <p class="judge {{ r['judge_color'] }}">
+        {{ r['judge'] }}
+        {% endfor %}
+      </p>
+    </div>
+    {% endif %}
+    {% if import_success %}
+    <p class="success">CSVインポートに成功しました。</p>
+    <div class="result-box">
+      <h2>計算結果
+        <table border="1">
+          <tr>
+            <th>商品名</th>
+            <th>利益</th>
+            <th>利益率</th>
+            <th>判定</th>
+          </tr>
+          {% for r in import_records %}
+          <tr>
+            <td>{{ r["name"] }}</td>
+            <td>{{ r["profit"] }}</td>
+            <td>{{ r["profit_rate"] }}%</td>
+            <td class="judge {{ r['judge_color'] }}">{{ r["judge"] }}</td>
+          </tr>
+          {% endfor %}
+        </table>
+    </div>
+    {% endif %}
+  </div>
+</body>
+
+</html>

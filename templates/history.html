@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="jp">
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}" type="text/css">
+  <title>計算履歴</title>
+</head>
+
+<body>
+  <div class="container">
+    <h2> 売買利益 </h2>
+    <div>
+      <a href="/" class="btn-back">←入力画面に戻る</a>
+    </div>
+
+
+    <div>
+      <a href="/history">全件表示</a>
+      <a href="/history?sort=date{% if current_order %}&order={{ current_order }}{% endif %}{% if current_filter %}&filter={{ current_filter }}{% endif %}">新しい順</a>
+      <a href="/history?sort=profit{% if current_order %}&order={{ current_order }}{% endif %}{% if current_filter %}&filter={{ current_filter }}{% endif %}">利益順</a>
+      <a href="/history?filter=red&sort={{ current_sort }}{% if current_order %}&order={{ current_order }}{% endif %}">赤字のみ</a>
+      <a href="/history?filter=yellow&sort={{ current_sort }}{% if current_order %}&order={{ current_order }}{% endif %}">利益が少なめのみ</a>
+      <a href="/history?filter=green&sort={{ current_sort }}{% if current_order %}&order={{ current_order }}{% endif %}">出品候補のみ</a>
+      <a href="/history?sort={{ current_sort }}&order=asc{% if current_filter %}&filter={{ current_filter }}{% endif %}">昇順</a>
+      <a href="/history?sort={{ current_sort }}&order=desc{% if current_filter %}&filter={{ current_filter }}{% endif %}">降順</a>
+    </div>
+    <div>
+      <a href="/download" class="btn-download">CSVダウンロード</a>
+    </div>
+    <table border="1">
+      <tr>
+        <th>商品名 </th>
+        <th>価格</th>
+        <th>原価</th>
+        <th>送料</th>
+        <th>利益</th>
+        <th>利益率</th>
+        <th>判定</th>
+        <th>日時</th>
+      </tr>
+      {% if records %}
+      {% for r in records %}
+      <tr>
+        <td>{{ r["name"] }}</td>
+        <td>{{ r["price"] }}</td>
+        <td>{{ r["cost_price"] }}</td>
+        <td>{{ r["shipping"] }}</td>
+        <td>{{ r["profit"] }}</td>
+        <td>{{ r["profit_rate"] }}%</td>
+        <td class="judge {{ r.judge_color }}">{{ r["judge"] }}</td>
+        <td>{{ r["date"] }}</td>
+        <td>
+          <a href="/delete?id={{ r['id'] }}">削除</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </table>
+    <a href="/delete_all">履歴を全て削除</a>
+    {% else %}
+    </table>
+    <p>まだ履歴がありません。</p>
+    {% endif%}
+
+
+  </div>
+</body>
+
+</html>

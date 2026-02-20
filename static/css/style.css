@@ -1,0 +1,135 @@
+/* 要素によるスタイルの適用 */
+/* Flaskは この構造でしかCSSを配信しません */
+
+body {
+  font-family: arial, sans-serif;
+  background-color: #f4f6f8;
+}
+
+.btn-back {
+  display: inline-block;
+  margin-bottom: 16px;
+  padding: 6px 12px;
+  background-color: #eee;
+  color: #333;
+  text-decoration: none;
+  border-radius: 4px;
+}
+.btn-back:hover {
+  background-color: #ddd;
+}
+
+.btn-history {
+  display: inline-block;
+  margin-bottom: 16px;
+  padding: 6px 12px;
+  background-color: #eee;
+  color: #333;
+  text-decoration: none;
+  border-radius: 4px;
+}
+.btn-history:hover {
+  background-color: #ddd;
+}
+
+
+.btn-download {
+  display: inline-block;
+  margin: 10px 0;
+  padding: 8px 14px;
+  background: #444;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+}
+.btn-download:hover {
+  background-color: #222;
+}
+
+/* classによるスタイルの適用 */
+/* 背景が薄グレーになり、白いカードが中央に出る */
+.container {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 30px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05)
+}
+
+.import-form {
+  margin-top: 20px;
+  padding: 15px;
+  border: 2px dashed #ccc;
+  border-radius: 6px;
+  background: #fafafa;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.field {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+input.single {
+  width: 100%;
+  padding: 8px;
+  background: #4f465e;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.result-box {
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 6px;
+  background: #f0f4ff;
+}
+.judge {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.judge.red {
+  color: #dc2626;
+}
+.judge.yellow {
+  color: #ca8a04;
+}
+.judge.green {
+  color: #16a34a;
+}
+
+
+.error_message {
+  color: red;
+}
+
+
+/* すべての入力欄のプレースホルダーの色を変える */
+input::placeholder {
+  color: #ccc;
+  font-size: 0.9em;
+}
+
+/* idによるスタイルの適用 */
+#name {
+  /* テスト用なのでコメントアウト */
+	/*color: blue; */
+}
+
+#price {
+    /* テスト用なのでコメントアウト */
+		/*color: purple;*/
+}
