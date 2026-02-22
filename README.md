@@ -37,7 +37,8 @@ source venv/bin/activate
 pip install -r requirements.txt
 
 ## フォルダ構成(仮想環境を作成した場所によって異なりますが以下を推奨)
-<summary>  
+<details>
+<summary>フォルダ構成  </summary>
 flask/  
 ├ myenv/←上記コマンドで作成した仮想環境（こちらはGit管理しない）  
 flask_test/    
@@ -58,9 +59,8 @@ flask_test/
 ├ app.py  
 ├ logic.py  
 └ requirements.txt  
-└ .gitignore  
-</summary>  
-
+└ .gitignore    
+</details>
 ## 起動及び使用手順
 python app.py
 
