@@ -39,6 +39,7 @@ pip install -r requirements.txt
 ## フォルダ構成(仮想環境を作成した場所によって異なりますが以下を推奨)
 <details>
 <summary>フォルダ構成  </summary>
+	
 flask/  
 ├ myenv/←上記コマンドで作成した仮想環境（こちらはGit管理しない）  
 flask_test/    
