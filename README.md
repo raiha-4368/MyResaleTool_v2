@@ -79,7 +79,7 @@ http://127.0.0.1:5000/
 <details>
 <summary>簡易設計(折り畳み)  </summary>
 
-app.py(flaskのエントリーインポート)
+app.py(flaskのエントリーインポート)  
 	∟index  
 	∟history  
 	∟delete_all  
@@ -87,7 +87,7 @@ app.py(flaskのエントリーインポート)
 	∟download  
 	∟import  
 	
-logic.py(CSV処理/計算及び判定/フィルタ・ソート機能)
+logic.py(CSV処理/計算及び判定/フィルタ・ソート機能)  
 	∟query_exe (DBへの接続とクエリの実行を行う)  
 	∟check_table (DB内に対象のテーブルがあるか確認する(確認自体はCREATE TABLEコマンドを使用))    
 	∟input_check(数値の正当性をチェック)    
