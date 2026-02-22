@@ -38,7 +38,7 @@ pip install -r requirements.txt
 
 ## フォルダ構成(仮想環境を作成した場所によって異なりますが以下を推奨)
 <details>
-<summary>フォルダ構成  </summary>
+<summary>フォルダ構成(折り畳み)  </summary>
 	
 flask/  
 ├ myenv/←上記コマンドで作成した仮想環境（こちらはGit管理しない）  
@@ -76,6 +76,9 @@ http://127.0.0.1:5000/
 4. 履歴をcsv形式でエクスポートすることができる。
 
 ## 簡易設計
+<details>
+<summary>簡易設計(折り畳み)  </summary>
+
 app.py(flaskのエントリーインポート)
 	∟index  
 	∟history  
@@ -94,13 +97,7 @@ logic.py(CSV処理/計算及び判定/フィルタ・ソート機能)
 	∟delete_exe(テーブル内の指定のデータを削除する)  
 	∟download_exe(DB内の履歴をcsv形式でダウンロードする)  
 
-
-## 関数のテスト(未実装)
-簡単なテスト関数(手動確認用)も含まれます。コメントアウトによりON,OFFする想定です。  
-ソースコード部分  
-"if __name__ == "__main__":  
-    test_judge()  # 確認したいときだけ有効化  
-    app.run(debug=True)"  
+</details>
 
 ## 実行イメージ
 ### 入力画面
